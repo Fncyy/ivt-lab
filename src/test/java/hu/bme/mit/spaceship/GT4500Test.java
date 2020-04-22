@@ -13,14 +13,14 @@ public class GT4500Test {
   private TorpedoStore secondary;
 
   @BeforeEach
-  public void init(){
+  public void init() {
     primary = mock(TorpedoStore.class);
     secondary = mock(TorpedoStore.class);
     this.ship = new GT4500(primary, secondary);
   }
 
   @Test
-  public void fireTorpedo_Single_Success(){
+  public void fireTorpedo_Single_Success() {
     // Arrange
     when(primary.fire(1)).thenReturn(true);
     when(secondary.fire(1)).thenReturn(true);
@@ -34,7 +34,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_All_Success(){
+  public void fireTorpedo_All_Success() {
     // Arrange
     when(primary.fire(1)).thenReturn(true);
     when(secondary.fire(1)).thenReturn(true);
@@ -48,7 +48,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fire_multiple_torpedoes_Single_Success(){
+  public void fire_multiple_torpedoes_Single_Success() {
     when(primary.fire(1)).thenReturn(true);
     when(secondary.fire(1)).thenReturn(true);
     when(primary.isEmpty()).thenReturn(false);
@@ -67,7 +67,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fire_primary_empty_Single_Success(){
+  public void fire_primary_empty_Single_Success() {
     when(primary.isEmpty()).thenReturn(true);
     when(secondary.isEmpty()).thenReturn(false);
     when(secondary.fire(1)).thenReturn(true);
@@ -79,7 +79,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fire_secondary_empty_Single_Success(){
+  public void fire_secondary_empty_Single_Success() {
     when(primary.isEmpty()).thenReturn(false);
     when(primary.fire(1)).thenReturn(true);
     when(secondary.isEmpty()).thenReturn(true);
@@ -92,7 +92,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fire_primary_Single_Failure(){
+  public void fire_primary_Single_Failure() {
     when(primary.isEmpty()).thenReturn(false);
     when(secondary.isEmpty()).thenReturn(false);
     when(primary.fire(1)).thenReturn(false);
@@ -105,7 +105,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fire_secondary_Single_Failure(){
+  public void fire_secondary_Single_Failure() {
     when(primary.isEmpty()).thenReturn(false);
     when(secondary.isEmpty()).thenReturn(false);
     when(primary.fire(1)).thenReturn(true);
@@ -119,7 +119,7 @@ public class GT4500Test {
   }
 
   @Test
-  public void fireTorpedo_oneFires_All_Failure(){
+  public void fireTorpedo_oneFires_All_Failure() {
     when(primary.isEmpty()).thenReturn(false);
     when(secondary.isEmpty()).thenReturn(false);
     when(primary.fire(1)).thenReturn(false);
